@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { TuiButton, TuiRoot } from '@taiga-ui/core';
+import { RouterOutlet } from '@angular/router';
+import { TuiRoot } from '@taiga-ui/core';
 
 @Component({
   selector: 'app-root',
-  imports: [TuiRoot, TuiButton],
+  imports: [TuiRoot, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
