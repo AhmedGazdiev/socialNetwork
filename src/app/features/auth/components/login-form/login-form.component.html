@@ -1,0 +1,24 @@
+<div class="auth">
+  <form class="auth_form" (submit)="onSubmit()">
+    <h1>Login form</h1>
+    <tui-textfield class="auth_input">
+      <label tuiLabel>Email</label>
+      <input tuiTextfield />
+      <tui-icon icon="@tui.mail" />
+    </tui-textfield>
+    <tui-textfield class="auth_input">
+      <label tuiLabel>Password</label>
+      <input tuiTextfield type="password" />
+      <tui-icon tuiPassword />
+    </tui-textfield>
+    <button class="auth_button" tuiButton type="submit">Login</button>
+    <div class="auth_with_services">
+      <span>or</span>
+      <google-button />
+    </div>
+  </form>
+  <div class="auth_form">
+    <span>Don't have an account?</span>
+    <a routerLink="/register">Register</a>
+  </div>
+</div>
