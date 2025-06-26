@@ -1,32 +1,32 @@
 <div class="auth">
-  <form class="auth_form" (submit)="onSubmit()">
+  <form class="auth_form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <h1>Register form</h1>
     <tui-textfield class="auth_input">
       <label tuiLabel>Full Name</label>
-      <input tuiTextfield />
+      <input tuiTextfield formControlName="fullname" />
       <tui-icon icon="@tui.circle-user" />
     </tui-textfield>
     <tui-textfield class="auth_input">
       <label tuiLabel>Username</label>
-      <input tuiTextfield />
+      <input tuiTextfield formControlName="username" />
       <tui-icon icon="@tui.circle-user" />
     </tui-textfield>
     <tui-textfield class="auth_input">
       <label tuiLabel>Email</label>
-      <input tuiTextfield />
+      <input tuiTextfield formControlName="email" />
       <tui-icon icon="@tui.mail" />
     </tui-textfield>
-
     <tui-textfield class="auth_input">
       <label tuiLabel>Password</label>
-      <input tuiTextfield />
-      <tui-icon tuiPassword />
+      <input tuiTextfield type="password" formControlName="password" />
+      <tui-icon icon="@tui.lock-keyhole" />
     </tui-textfield>
     <tui-textfield class="auth_input">
       <label tuiLabel>Confirm Password</label>
-      <input tuiTextfield />
-      <tui-icon tuiPassword />
+      <input tuiTextfield type="password" formControlName="confirmPassword" />
+      <tui-icon icon="@tui.lock-keyhole" />
     </tui-textfield>
+
     <button class="auth_button" tuiButton type="submit">Register</button>
     <div class="auth_with_services">
       <span>or</span>

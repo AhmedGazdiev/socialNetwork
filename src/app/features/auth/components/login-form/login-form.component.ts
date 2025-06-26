@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TuiButton, TuiIcon, TuiTextfield } from '@taiga-ui/core';
-import { TuiPassword } from '@taiga-ui/kit';
 import { GoogleButtonComponent } from '../google-button/google-button.component';
 
 @Component({
@@ -11,7 +10,6 @@ import { GoogleButtonComponent } from '../google-button/google-button.component'
     TuiButton,
     TuiIcon,
     TuiButton,
-    TuiPassword,
     GoogleButtonComponent,
     RouterLink,
   ],

@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TuiButton, TuiIcon, TuiTextfield } from '@taiga-ui/core';
-import { TuiPassword } from '@taiga-ui/kit';
 import { GoogleButtonComponent } from '../google-button/google-button.component';
 
 @Component({
@@ -10,14 +10,40 @@ import { GoogleButtonComponent } from '../google-button/google-button.component'
     TuiTextfield,
     TuiButton,
     TuiIcon,
-    TuiPassword,
     GoogleButtonComponent,
     RouterLink,
+    ReactiveFormsModule,
   ],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterFormComponent {
-  onSubmit() {}
+  private readonly fb = inject(FormBuilder);
+
+  public readonly registerForm = this.fb.group({
+    fullname: this.fb.control('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+    username: this.fb.control('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+    email: this.fb.control('', [Validators.required, Validators.email]),
+    password: this.fb.control('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+    confirmPassword: this.fb.control('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+  });
+
+  onSubmit() {
+    if (this.registerForm.valid) {
+      console.log(this.registerForm.value);
+    }
+  }
 }
