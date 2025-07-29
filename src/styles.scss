@@ -63,12 +63,24 @@ body {
 }
 
 .auth_input {
+  margin-bottom: 8px;
   width: 100%;
+  position: relative;
+
+  .error {
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+  }
 }
 
 .auth_button {
   width: 100%;
   margin-top: 8px;
+}
+
+.error {
+  color: red;
 }
 
 .auth_with_services {

@@ -5,26 +5,71 @@
       <label tuiLabel>Full Name</label>
       <input tuiTextfield formControlName="fullname" />
       <tui-icon icon="@tui.circle-user" />
+      @if (registerForm.invalid && fullname()?.dirty) {
+      <span class="error">
+        @if (fullname()?.errors?.['required']) {
+        {{ "обязательное поле" }}
+        }@else if (fullname()?.errors?.['minlength']) {
+        {{ "минимальное количество символов" }}
+        }
+      </span>
+      }
     </tui-textfield>
     <tui-textfield class="auth_input">
       <label tuiLabel>Username</label>
       <input tuiTextfield formControlName="username" />
       <tui-icon icon="@tui.circle-user" />
+      @if (registerForm.invalid && username()?.dirty) {
+      <span class="error">
+        @if (username()?.errors?.['required']) {
+        {{ "обязательное поле" }}
+        }@else if (username()?.errors?.['minlength']) {
+        {{ "минимальное количество символов" }}
+        }
+      </span>
+      }
     </tui-textfield>
     <tui-textfield class="auth_input">
       <label tuiLabel>Email</label>
       <input tuiTextfield formControlName="email" />
       <tui-icon icon="@tui.mail" />
+      @if (registerForm.invalid && email()?.dirty) {
+      <span class="error">
+        @if (email()?.errors?.['required']) {
+        {{ "обязательное поле" }}
+        }@else if (email()?.errors?.['email']) {
+        {{ "почта невалидна" }}
+        }
+      </span>
+      }
     </tui-textfield>
     <tui-textfield class="auth_input">
       <label tuiLabel>Password</label>
       <input tuiTextfield type="password" formControlName="password" />
       <tui-icon icon="@tui.lock-keyhole" />
+      @if (registerForm.invalid && password()?.dirty) {
+      <span class="error">
+        @if (password()?.errors?.['required']) {
+        {{ "обязательное поле" }}
+        }@else if (password()?.errors?.['minlength']) {
+        {{ "минимальное количество символов" }}
+        }
+      </span>
+      }
     </tui-textfield>
     <tui-textfield class="auth_input">
       <label tuiLabel>Confirm Password</label>
       <input tuiTextfield type="password" formControlName="confirmPassword" />
       <tui-icon icon="@tui.lock-keyhole" />
+      @if (registerForm.invalid && confirmPassword()?.dirty) {
+      <span class="error">
+        @if (confirmPassword()?.errors?.['required']) {
+        {{ "обязательное поле" }}
+        } @else if (confirmPassword()?.errors?.['notMatch']) {
+        {{ "пароли не совпадают" }}
+        }
+      </span>
+      }
     </tui-textfield>
 
     <button class="auth_button" tuiButton type="submit">Register</button>
