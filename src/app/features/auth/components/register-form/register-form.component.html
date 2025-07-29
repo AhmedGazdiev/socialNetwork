@@ -65,7 +65,7 @@
       <span class="error">
         @if (confirmPassword()?.errors?.['required']) {
         {{ "обязательное поле" }}
-        } @else if (confirmPassword()?.errors?.['notMatch']) {
+        } @else if (registerForm.errors?.['notMatch']) {
         {{ "пароли не совпадают" }}
         }
       </span>
